@@ -25,16 +25,17 @@ export function PageHeader({
       </div>
       <div className="flex items-center gap-3">
         <Button variant="outline" size="sm" asChild>
-          <Link href="#">
+          <Link href="#" aria-label="Feedback">
             <ThumbsUp />
-            <span className="hidden lg:block">Feedback</span>
+            <span className="sr-only lg:not-sr-only">Feedback</span>
           </Link>
         </Button>
         <Button variant="outline" size="sm" asChild>
-          <Link href="#">
+          <Link href="#" aria-label="Need help?">
             <Headphones />
-            <span className="hidden lg:block">Need help?</span>
+            <span className="sr-only lg:not-sr-only">Need help?</span>
           </Link>
+        </Button>
         </Button>
       </div>
     </div>
