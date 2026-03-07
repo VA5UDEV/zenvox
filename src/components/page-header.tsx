@@ -36,7 +36,6 @@ export function PageHeader({
             <span className="sr-only lg:not-sr-only">Need help?</span>
           </Link>
         </Button>
-        </Button>
       </div>
     </div>
   );
