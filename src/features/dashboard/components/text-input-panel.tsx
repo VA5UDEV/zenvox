@@ -7,7 +7,10 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
-import { TEXT_MAX_LENGTH } from "@/features/text-to-speech/data/constants";
+import {
+  COST_PER_UNIT,
+  TEXT_MAX_LENGTH,
+} from "@/features/text-to-speech/data/constants";
 
 export function TextInputPanel() {
   const [text, setText] = useState("");
@@ -28,7 +31,7 @@ export function TextInputPanel() {
     >
       {/* Using px values for border-radius to ensure proper gradient border math (outer - padding = inner). */}
       {/* Standard classes like rounded-4xl use CSS calc() which doesn't align cleanly at corners. */}
-      <div className="rounded-[20px] bg-[#F9F9F9] p-1">
+      <div className="rounded-4xl bg-[#F9F9F9] p-1">
         <div className="space-y-4 rounded-2xl bg-white p-4 drop-shadow-xs">
           <Textarea
             placeholder="Start typing or paste your text here..."
@@ -49,7 +52,7 @@ export function TextInputPanel() {
                 ) : (
                   <>
                     <span className="tabular-nums">
-                      ${(text.length * 0.0003).toFixed(4)}
+                      ${(text.length * COST_PER_UNIT).toFixed(4)}
                     </span>{" "}
                     estimated
                   </>
