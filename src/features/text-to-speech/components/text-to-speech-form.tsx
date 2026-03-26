@@ -12,10 +12,10 @@ import { useAppForm } from "@/hooks/use-app-form";
 const ttsFormSchema = z.object({
   text: z.string().min(1, "Please enter some text"),
   voiceId: z.string().min(1, "Please select a voice"),
+  languageId: z.string().min(1, "Please select a language"),
   temperature: z.number(),
-  topP: z.number(),
-  topK: z.number(),
-  repetitionPenalty: z.number(),
+  exaggeration: z.number(), // 👈 replaces topP/topK/repetitionPenalty
+  cfgWeight: z.number(),
 });
 
 export type TTSFormValues = z.infer<typeof ttsFormSchema>;
@@ -23,10 +23,10 @@ export type TTSFormValues = z.infer<typeof ttsFormSchema>;
 export const defaultTTSValues: TTSFormValues = {
   text: "",
   voiceId: "",
+  languageId: "en",
   temperature: 0.8,
-  topP: 0.95,
-  topK: 1000,
-  repetitionPenalty: 1.2,
+  exaggeration: 0.5,
+  cfgWeight: 0.5,
 };
 
 export const ttsFormOptions = formOptions({
@@ -57,10 +57,10 @@ export function TextToSpeechForm({
         const data = await createMutation.mutateAsync({
           text: value.text.trim(),
           voiceId: value.voiceId,
+          languageId: value.languageId,
           temperature: value.temperature,
-          topP: value.topP,
-          topK: value.topK,
-          repetitionPenalty: value.repetitionPenalty,
+          exaggeration: value.exaggeration,
+          cfgWeight: value.cfgWeight,
         });
 
         toast.success("Audio generated successfully!");
