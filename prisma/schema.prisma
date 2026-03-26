@@ -65,10 +65,10 @@ model Generation {
   text              String
   voiceName         String
   r2ObjectKey       String?
+  languageId  String  @default("en")
   temperature       Float
-  topP              Float
-  topK              Int
-  repetitionPenalty Float
+  exaggeration      Float
+  cfgWeight         Float
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
