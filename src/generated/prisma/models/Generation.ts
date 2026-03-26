@@ -28,16 +28,14 @@ export type AggregateGeneration = {
 
 export type GenerationAvgAggregateOutputType = {
   temperature: number | null
-  topP: number | null
-  topK: number | null
-  repetitionPenalty: number | null
+  exaggeration: number | null
+  cfgWeight: number | null
 }
 
 export type GenerationSumAggregateOutputType = {
   temperature: number | null
-  topP: number | null
-  topK: number | null
-  repetitionPenalty: number | null
+  exaggeration: number | null
+  cfgWeight: number | null
 }
 
 export type GenerationMinAggregateOutputType = {
@@ -47,10 +45,10 @@ export type GenerationMinAggregateOutputType = {
   text: string | null
   voiceName: string | null
   r2ObjectKey: string | null
+  languageId: string | null
   temperature: number | null
-  topP: number | null
-  topK: number | null
-  repetitionPenalty: number | null
+  exaggeration: number | null
+  cfgWeight: number | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -62,10 +60,10 @@ export type GenerationMaxAggregateOutputType = {
   text: string | null
   voiceName: string | null
   r2ObjectKey: string | null
+  languageId: string | null
   temperature: number | null
-  topP: number | null
-  topK: number | null
-  repetitionPenalty: number | null
+  exaggeration: number | null
+  cfgWeight: number | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -77,10 +75,10 @@ export type GenerationCountAggregateOutputType = {
   text: number
   voiceName: number
   r2ObjectKey: number
+  languageId: number
   temperature: number
-  topP: number
-  topK: number
-  repetitionPenalty: number
+  exaggeration: number
+  cfgWeight: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -89,16 +87,14 @@ export type GenerationCountAggregateOutputType = {
 
 export type GenerationAvgAggregateInputType = {
   temperature?: true
-  topP?: true
-  topK?: true
-  repetitionPenalty?: true
+  exaggeration?: true
+  cfgWeight?: true
 }
 
 export type GenerationSumAggregateInputType = {
   temperature?: true
-  topP?: true
-  topK?: true
-  repetitionPenalty?: true
+  exaggeration?: true
+  cfgWeight?: true
 }
 
 export type GenerationMinAggregateInputType = {
@@ -108,10 +104,10 @@ export type GenerationMinAggregateInputType = {
   text?: true
   voiceName?: true
   r2ObjectKey?: true
+  languageId?: true
   temperature?: true
-  topP?: true
-  topK?: true
-  repetitionPenalty?: true
+  exaggeration?: true
+  cfgWeight?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -123,10 +119,10 @@ export type GenerationMaxAggregateInputType = {
   text?: true
   voiceName?: true
   r2ObjectKey?: true
+  languageId?: true
   temperature?: true
-  topP?: true
-  topK?: true
-  repetitionPenalty?: true
+  exaggeration?: true
+  cfgWeight?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -138,10 +134,10 @@ export type GenerationCountAggregateInputType = {
   text?: true
   voiceName?: true
   r2ObjectKey?: true
+  languageId?: true
   temperature?: true
-  topP?: true
-  topK?: true
-  repetitionPenalty?: true
+  exaggeration?: true
+  cfgWeight?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -240,10 +236,10 @@ export type GenerationGroupByOutputType = {
   text: string
   voiceName: string
   r2ObjectKey: string | null
+  languageId: string
   temperature: number
-  topP: number
-  topK: number
-  repetitionPenalty: number
+  exaggeration: number
+  cfgWeight: number
   createdAt: Date
   updatedAt: Date
   _count: GenerationCountAggregateOutputType | null
@@ -278,10 +274,10 @@ export type GenerationWhereInput = {
   text?: Prisma.StringFilter<"Generation"> | string
   voiceName?: Prisma.StringFilter<"Generation"> | string
   r2ObjectKey?: Prisma.StringNullableFilter<"Generation"> | string | null
+  languageId?: Prisma.StringFilter<"Generation"> | string
   temperature?: Prisma.FloatFilter<"Generation"> | number
-  topP?: Prisma.FloatFilter<"Generation"> | number
-  topK?: Prisma.IntFilter<"Generation"> | number
-  repetitionPenalty?: Prisma.FloatFilter<"Generation"> | number
+  exaggeration?: Prisma.FloatFilter<"Generation"> | number
+  cfgWeight?: Prisma.FloatFilter<"Generation"> | number
   createdAt?: Prisma.DateTimeFilter<"Generation"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Generation"> | Date | string
   voice?: Prisma.XOR<Prisma.VoiceNullableScalarRelationFilter, Prisma.VoiceWhereInput> | null
@@ -294,10 +290,10 @@ export type GenerationOrderByWithRelationInput = {
   text?: Prisma.SortOrder
   voiceName?: Prisma.SortOrder
   r2ObjectKey?: Prisma.SortOrderInput | Prisma.SortOrder
+  languageId?: Prisma.SortOrder
   temperature?: Prisma.SortOrder
-  topP?: Prisma.SortOrder
-  topK?: Prisma.SortOrder
-  repetitionPenalty?: Prisma.SortOrder
+  exaggeration?: Prisma.SortOrder
+  cfgWeight?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   voice?: Prisma.VoiceOrderByWithRelationInput
@@ -313,10 +309,10 @@ export type GenerationWhereUniqueInput = Prisma.AtLeast<{
   text?: Prisma.StringFilter<"Generation"> | string
   voiceName?: Prisma.StringFilter<"Generation"> | string
   r2ObjectKey?: Prisma.StringNullableFilter<"Generation"> | string | null
+  languageId?: Prisma.StringFilter<"Generation"> | string
   temperature?: Prisma.FloatFilter<"Generation"> | number
-  topP?: Prisma.FloatFilter<"Generation"> | number
-  topK?: Prisma.IntFilter<"Generation"> | number
-  repetitionPenalty?: Prisma.FloatFilter<"Generation"> | number
+  exaggeration?: Prisma.FloatFilter<"Generation"> | number
+  cfgWeight?: Prisma.FloatFilter<"Generation"> | number
   createdAt?: Prisma.DateTimeFilter<"Generation"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Generation"> | Date | string
   voice?: Prisma.XOR<Prisma.VoiceNullableScalarRelationFilter, Prisma.VoiceWhereInput> | null
@@ -329,10 +325,10 @@ export type GenerationOrderByWithAggregationInput = {
   text?: Prisma.SortOrder
   voiceName?: Prisma.SortOrder
   r2ObjectKey?: Prisma.SortOrderInput | Prisma.SortOrder
+  languageId?: Prisma.SortOrder
   temperature?: Prisma.SortOrder
-  topP?: Prisma.SortOrder
-  topK?: Prisma.SortOrder
-  repetitionPenalty?: Prisma.SortOrder
+  exaggeration?: Prisma.SortOrder
+  cfgWeight?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.GenerationCountOrderByAggregateInput
@@ -352,10 +348,10 @@ export type GenerationScalarWhereWithAggregatesInput = {
   text?: Prisma.StringWithAggregatesFilter<"Generation"> | string
   voiceName?: Prisma.StringWithAggregatesFilter<"Generation"> | string
   r2ObjectKey?: Prisma.StringNullableWithAggregatesFilter<"Generation"> | string | null
+  languageId?: Prisma.StringWithAggregatesFilter<"Generation"> | string
   temperature?: Prisma.FloatWithAggregatesFilter<"Generation"> | number
-  topP?: Prisma.FloatWithAggregatesFilter<"Generation"> | number
-  topK?: Prisma.IntWithAggregatesFilter<"Generation"> | number
-  repetitionPenalty?: Prisma.FloatWithAggregatesFilter<"Generation"> | number
+  exaggeration?: Prisma.FloatWithAggregatesFilter<"Generation"> | number
+  cfgWeight?: Prisma.FloatWithAggregatesFilter<"Generation"> | number
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Generation"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Generation"> | Date | string
 }
@@ -366,10 +362,10 @@ export type GenerationCreateInput = {
   text: string
   voiceName: string
   r2ObjectKey?: string | null
+  languageId?: string
   temperature: number
-  topP: number
-  topK: number
-  repetitionPenalty: number
+  exaggeration: number
+  cfgWeight: number
   createdAt?: Date | string
   updatedAt?: Date | string
   voice?: Prisma.VoiceCreateNestedOneWithoutGenerationsInput
@@ -382,10 +378,10 @@ export type GenerationUncheckedCreateInput = {
   text: string
   voiceName: string
   r2ObjectKey?: string | null
+  languageId?: string
   temperature: number
-  topP: number
-  topK: number
-  repetitionPenalty: number
+  exaggeration: number
+  cfgWeight: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -396,10 +392,10 @@ export type GenerationUpdateInput = {
   text?: Prisma.StringFieldUpdateOperationsInput | string
   voiceName?: Prisma.StringFieldUpdateOperationsInput | string
   r2ObjectKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  languageId?: Prisma.StringFieldUpdateOperationsInput | string
   temperature?: Prisma.FloatFieldUpdateOperationsInput | number
-  topP?: Prisma.FloatFieldUpdateOperationsInput | number
-  topK?: Prisma.IntFieldUpdateOperationsInput | number
-  repetitionPenalty?: Prisma.FloatFieldUpdateOperationsInput | number
+  exaggeration?: Prisma.FloatFieldUpdateOperationsInput | number
+  cfgWeight?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   voice?: Prisma.VoiceUpdateOneWithoutGenerationsNestedInput
@@ -412,10 +408,10 @@ export type GenerationUncheckedUpdateInput = {
   text?: Prisma.StringFieldUpdateOperationsInput | string
   voiceName?: Prisma.StringFieldUpdateOperationsInput | string
   r2ObjectKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  languageId?: Prisma.StringFieldUpdateOperationsInput | string
   temperature?: Prisma.FloatFieldUpdateOperationsInput | number
-  topP?: Prisma.FloatFieldUpdateOperationsInput | number
-  topK?: Prisma.IntFieldUpdateOperationsInput | number
-  repetitionPenalty?: Prisma.FloatFieldUpdateOperationsInput | number
+  exaggeration?: Prisma.FloatFieldUpdateOperationsInput | number
+  cfgWeight?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -427,10 +423,10 @@ export type GenerationCreateManyInput = {
   text: string
   voiceName: string
   r2ObjectKey?: string | null
+  languageId?: string
   temperature: number
-  topP: number
-  topK: number
-  repetitionPenalty: number
+  exaggeration: number
+  cfgWeight: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -441,10 +437,10 @@ export type GenerationUpdateManyMutationInput = {
   text?: Prisma.StringFieldUpdateOperationsInput | string
   voiceName?: Prisma.StringFieldUpdateOperationsInput | string
   r2ObjectKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  languageId?: Prisma.StringFieldUpdateOperationsInput | string
   temperature?: Prisma.FloatFieldUpdateOperationsInput | number
-  topP?: Prisma.FloatFieldUpdateOperationsInput | number
-  topK?: Prisma.IntFieldUpdateOperationsInput | number
-  repetitionPenalty?: Prisma.FloatFieldUpdateOperationsInput | number
+  exaggeration?: Prisma.FloatFieldUpdateOperationsInput | number
+  cfgWeight?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -456,10 +452,10 @@ export type GenerationUncheckedUpdateManyInput = {
   text?: Prisma.StringFieldUpdateOperationsInput | string
   voiceName?: Prisma.StringFieldUpdateOperationsInput | string
   r2ObjectKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  languageId?: Prisma.StringFieldUpdateOperationsInput | string
   temperature?: Prisma.FloatFieldUpdateOperationsInput | number
-  topP?: Prisma.FloatFieldUpdateOperationsInput | number
-  topK?: Prisma.IntFieldUpdateOperationsInput | number
-  repetitionPenalty?: Prisma.FloatFieldUpdateOperationsInput | number
+  exaggeration?: Prisma.FloatFieldUpdateOperationsInput | number
+  cfgWeight?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -481,19 +477,18 @@ export type GenerationCountOrderByAggregateInput = {
   text?: Prisma.SortOrder
   voiceName?: Prisma.SortOrder
   r2ObjectKey?: Prisma.SortOrder
+  languageId?: Prisma.SortOrder
   temperature?: Prisma.SortOrder
-  topP?: Prisma.SortOrder
-  topK?: Prisma.SortOrder
-  repetitionPenalty?: Prisma.SortOrder
+  exaggeration?: Prisma.SortOrder
+  cfgWeight?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
 
 export type GenerationAvgOrderByAggregateInput = {
   temperature?: Prisma.SortOrder
-  topP?: Prisma.SortOrder
-  topK?: Prisma.SortOrder
-  repetitionPenalty?: Prisma.SortOrder
+  exaggeration?: Prisma.SortOrder
+  cfgWeight?: Prisma.SortOrder
 }
 
 export type GenerationMaxOrderByAggregateInput = {
@@ -503,10 +498,10 @@ export type GenerationMaxOrderByAggregateInput = {
   text?: Prisma.SortOrder
   voiceName?: Prisma.SortOrder
   r2ObjectKey?: Prisma.SortOrder
+  languageId?: Prisma.SortOrder
   temperature?: Prisma.SortOrder
-  topP?: Prisma.SortOrder
-  topK?: Prisma.SortOrder
-  repetitionPenalty?: Prisma.SortOrder
+  exaggeration?: Prisma.SortOrder
+  cfgWeight?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -518,19 +513,18 @@ export type GenerationMinOrderByAggregateInput = {
   text?: Prisma.SortOrder
   voiceName?: Prisma.SortOrder
   r2ObjectKey?: Prisma.SortOrder
+  languageId?: Prisma.SortOrder
   temperature?: Prisma.SortOrder
-  topP?: Prisma.SortOrder
-  topK?: Prisma.SortOrder
-  repetitionPenalty?: Prisma.SortOrder
+  exaggeration?: Prisma.SortOrder
+  cfgWeight?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
 
 export type GenerationSumOrderByAggregateInput = {
   temperature?: Prisma.SortOrder
-  topP?: Prisma.SortOrder
-  topK?: Prisma.SortOrder
-  repetitionPenalty?: Prisma.SortOrder
+  exaggeration?: Prisma.SortOrder
+  cfgWeight?: Prisma.SortOrder
 }
 
 export type GenerationCreateNestedManyWithoutVoiceInput = {
@@ -583,24 +577,16 @@ export type FloatFieldUpdateOperationsInput = {
   divide?: number
 }
 
-export type IntFieldUpdateOperationsInput = {
-  set?: number
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
-}
-
 export type GenerationCreateWithoutVoiceInput = {
   id?: string
   orgId: string
   text: string
   voiceName: string
   r2ObjectKey?: string | null
+  languageId?: string
   temperature: number
-  topP: number
-  topK: number
-  repetitionPenalty: number
+  exaggeration: number
+  cfgWeight: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -611,10 +597,10 @@ export type GenerationUncheckedCreateWithoutVoiceInput = {
   text: string
   voiceName: string
   r2ObjectKey?: string | null
+  languageId?: string
   temperature: number
-  topP: number
-  topK: number
-  repetitionPenalty: number
+  exaggeration: number
+  cfgWeight: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -655,10 +641,10 @@ export type GenerationScalarWhereInput = {
   text?: Prisma.StringFilter<"Generation"> | string
   voiceName?: Prisma.StringFilter<"Generation"> | string
   r2ObjectKey?: Prisma.StringNullableFilter<"Generation"> | string | null
+  languageId?: Prisma.StringFilter<"Generation"> | string
   temperature?: Prisma.FloatFilter<"Generation"> | number
-  topP?: Prisma.FloatFilter<"Generation"> | number
-  topK?: Prisma.IntFilter<"Generation"> | number
-  repetitionPenalty?: Prisma.FloatFilter<"Generation"> | number
+  exaggeration?: Prisma.FloatFilter<"Generation"> | number
+  cfgWeight?: Prisma.FloatFilter<"Generation"> | number
   createdAt?: Prisma.DateTimeFilter<"Generation"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Generation"> | Date | string
 }
@@ -669,10 +655,10 @@ export type GenerationCreateManyVoiceInput = {
   text: string
   voiceName: string
   r2ObjectKey?: string | null
+  languageId?: string
   temperature: number
-  topP: number
-  topK: number
-  repetitionPenalty: number
+  exaggeration: number
+  cfgWeight: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -683,10 +669,10 @@ export type GenerationUpdateWithoutVoiceInput = {
   text?: Prisma.StringFieldUpdateOperationsInput | string
   voiceName?: Prisma.StringFieldUpdateOperationsInput | string
   r2ObjectKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  languageId?: Prisma.StringFieldUpdateOperationsInput | string
   temperature?: Prisma.FloatFieldUpdateOperationsInput | number
-  topP?: Prisma.FloatFieldUpdateOperationsInput | number
-  topK?: Prisma.IntFieldUpdateOperationsInput | number
-  repetitionPenalty?: Prisma.FloatFieldUpdateOperationsInput | number
+  exaggeration?: Prisma.FloatFieldUpdateOperationsInput | number
+  cfgWeight?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -697,10 +683,10 @@ export type GenerationUncheckedUpdateWithoutVoiceInput = {
   text?: Prisma.StringFieldUpdateOperationsInput | string
   voiceName?: Prisma.StringFieldUpdateOperationsInput | string
   r2ObjectKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  languageId?: Prisma.StringFieldUpdateOperationsInput | string
   temperature?: Prisma.FloatFieldUpdateOperationsInput | number
-  topP?: Prisma.FloatFieldUpdateOperationsInput | number
-  topK?: Prisma.IntFieldUpdateOperationsInput | number
-  repetitionPenalty?: Prisma.FloatFieldUpdateOperationsInput | number
+  exaggeration?: Prisma.FloatFieldUpdateOperationsInput | number
+  cfgWeight?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -711,10 +697,10 @@ export type GenerationUncheckedUpdateManyWithoutVoiceInput = {
   text?: Prisma.StringFieldUpdateOperationsInput | string
   voiceName?: Prisma.StringFieldUpdateOperationsInput | string
   r2ObjectKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  languageId?: Prisma.StringFieldUpdateOperationsInput | string
   temperature?: Prisma.FloatFieldUpdateOperationsInput | number
-  topP?: Prisma.FloatFieldUpdateOperationsInput | number
-  topK?: Prisma.IntFieldUpdateOperationsInput | number
-  repetitionPenalty?: Prisma.FloatFieldUpdateOperationsInput | number
+  exaggeration?: Prisma.FloatFieldUpdateOperationsInput | number
+  cfgWeight?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -728,10 +714,10 @@ export type GenerationSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   text?: boolean
   voiceName?: boolean
   r2ObjectKey?: boolean
+  languageId?: boolean
   temperature?: boolean
-  topP?: boolean
-  topK?: boolean
-  repetitionPenalty?: boolean
+  exaggeration?: boolean
+  cfgWeight?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   voice?: boolean | Prisma.Generation$voiceArgs<ExtArgs>
@@ -744,10 +730,10 @@ export type GenerationSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   text?: boolean
   voiceName?: boolean
   r2ObjectKey?: boolean
+  languageId?: boolean
   temperature?: boolean
-  topP?: boolean
-  topK?: boolean
-  repetitionPenalty?: boolean
+  exaggeration?: boolean
+  cfgWeight?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   voice?: boolean | Prisma.Generation$voiceArgs<ExtArgs>
@@ -760,10 +746,10 @@ export type GenerationSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   text?: boolean
   voiceName?: boolean
   r2ObjectKey?: boolean
+  languageId?: boolean
   temperature?: boolean
-  topP?: boolean
-  topK?: boolean
-  repetitionPenalty?: boolean
+  exaggeration?: boolean
+  cfgWeight?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   voice?: boolean | Prisma.Generation$voiceArgs<ExtArgs>
@@ -776,15 +762,15 @@ export type GenerationSelectScalar = {
   text?: boolean
   voiceName?: boolean
   r2ObjectKey?: boolean
+  languageId?: boolean
   temperature?: boolean
-  topP?: boolean
-  topK?: boolean
-  repetitionPenalty?: boolean
+  exaggeration?: boolean
+  cfgWeight?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type GenerationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "orgId" | "voiceId" | "text" | "voiceName" | "r2ObjectKey" | "temperature" | "topP" | "topK" | "repetitionPenalty" | "createdAt" | "updatedAt", ExtArgs["result"]["generation"]>
+export type GenerationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "orgId" | "voiceId" | "text" | "voiceName" | "r2ObjectKey" | "languageId" | "temperature" | "exaggeration" | "cfgWeight" | "createdAt" | "updatedAt", ExtArgs["result"]["generation"]>
 export type GenerationInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   voice?: boolean | Prisma.Generation$voiceArgs<ExtArgs>
 }
@@ -807,10 +793,10 @@ export type $GenerationPayload<ExtArgs extends runtime.Types.Extensions.Internal
     text: string
     voiceName: string
     r2ObjectKey: string | null
+    languageId: string
     temperature: number
-    topP: number
-    topK: number
-    repetitionPenalty: number
+    exaggeration: number
+    cfgWeight: number
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["generation"]>
@@ -1243,10 +1229,10 @@ export interface GenerationFieldRefs {
   readonly text: Prisma.FieldRef<"Generation", 'String'>
   readonly voiceName: Prisma.FieldRef<"Generation", 'String'>
   readonly r2ObjectKey: Prisma.FieldRef<"Generation", 'String'>
+  readonly languageId: Prisma.FieldRef<"Generation", 'String'>
   readonly temperature: Prisma.FieldRef<"Generation", 'Float'>
-  readonly topP: Prisma.FieldRef<"Generation", 'Float'>
-  readonly topK: Prisma.FieldRef<"Generation", 'Int'>
-  readonly repetitionPenalty: Prisma.FieldRef<"Generation", 'Float'>
+  readonly exaggeration: Prisma.FieldRef<"Generation", 'Float'>
+  readonly cfgWeight: Prisma.FieldRef<"Generation", 'Float'>
   readonly createdAt: Prisma.FieldRef<"Generation", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Generation", 'DateTime'>
 }
