@@ -46,10 +46,10 @@ export const generationsRouter = createTRPCRouter({
       z.object({
         text: z.string().min(1).max(TEXT_MAX_LENGTH),
         voiceId: z.string().min(1),
+        languageId: z.string().default("en"),
         temperature: z.number().min(0).max(2).default(0.8),
-        topP: z.number().min(0).max(1).default(0.95),
-        topK: z.number().min(1).max(10000).default(1000),
-        repetitionPenalty: z.number().min(1).max(2).default(1.2),
+        exaggeration: z.number().min(0.25).max(2).default(0.5),
+        cfgWeight: z.number().min(0).max(1).default(0.5),
       }),
     )
     .mutation(async ({ input, ctx }) => {
@@ -83,10 +83,10 @@ export const generationsRouter = createTRPCRouter({
         body: {
           prompt: input.text,
           voice_key: voice.r2ObjectKey,
+          language_id: input.languageId,
           temperature: input.temperature,
-          top_p: input.topP,
-          top_k: input.topK,
-          repetition_penalty: input.repetitionPenalty,
+          exaggeration: input.exaggeration,
+          cfg_weight: input.cfgWeight,
           norm_loudness: true,
         },
         parseAs: "arrayBuffer",
@@ -117,10 +117,10 @@ export const generationsRouter = createTRPCRouter({
             text: input.text,
             voiceName: voice.name,
             voiceId: voice.id,
+            languageId: input.languageId,
             temperature: input.temperature,
-            topP: input.topP,
-            topK: input.topK,
-            repetitionPenalty: input.repetitionPenalty,
+            exaggeration: input.exaggeration,
+            cfgWeight: input.cfgWeight,
           },
           select: {
             id: true,
