@@ -615,10 +615,10 @@ export const GenerationScalarFieldEnum = {
   text: 'text',
   voiceName: 'voiceName',
   r2ObjectKey: 'r2ObjectKey',
+  languageId: 'languageId',
   temperature: 'temperature',
-  topP: 'topP',
-  topK: 'topK',
-  repetitionPenalty: 'repetitionPenalty',
+  exaggeration: 'exaggeration',
+  cfgWeight: 'cfgWeight',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
