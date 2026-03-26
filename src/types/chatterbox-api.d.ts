@@ -3,7 +3,7 @@
 * Do not edit manually. Run `npm run sync-api` to regenerate.
 *
 * Generated from: https://vloct-dev--chatterbox-tts-chatterbox-serve.modal.run/openapi.json
-* Generated at: 2026-03-16T00:13:47.816Z
+* Generated at: 2026-03-25T23:10:36.913Z
 */
   export interface paths {
     "/generate": {
@@ -42,25 +42,25 @@ export interface components {
             /** Voice Key */
             voice_key: string;
             /**
+             * Language Id
+             * @default en
+             */
+            language_id: string;
+            /**
              * Temperature
              * @default 0.8
              */
             temperature: number;
             /**
-             * Top P
-             * @default 0.95
+             * Exaggeration
+             * @default 0.5
              */
-            top_p: number;
+            exaggeration: number;
             /**
-             * Top K
-             * @default 1000
+             * Cfg Weight
+             * @default 0.5
              */
-            top_k: number;
-            /**
-             * Repetition Penalty
-             * @default 1.2
-             */
-            repetition_penalty: number;
+            cfg_weight: number;
             /**
              * Norm Loudness
              * @default true
